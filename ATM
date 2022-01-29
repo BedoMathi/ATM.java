@@ -1,0 +1,514 @@
+package com.git_hub;
+
+
+import java.util.Scanner;
+public class ATM {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int Counter_For_Digits_Of_Card = 0;
+        int cardnumber3 = 0;
+        System.out.println("\t" + "\t" + "\t" + "\t" + "\t" + "Welcome to SBI ATM");
+        System.out.println("1) Withdraw Money");
+        System.out.println("2) Transfer Money");
+        System.out.println("3) Services");
+        System.out.println("4) Request Loan");
+        System.out.println("5) Pay Insurance");
+        System.out.println("Enter Choice");
+        int choice1 = sc.nextInt();
+        switch (choice1) {
+            case 1:
+                System.out.println("Insert Card");
+                String card1 = sc.next();
+                if (card1.equalsIgnoreCase("Card")) {
+                    System.out.println("Enter Card Number(The Card Number Should not contain 0)");
+                    int cardnumber1 = sc.nextInt();
+                    for (int i = cardnumber1; i != 0; i = i / 10) {
+                        int d = i % 10;
+                        Counter_For_Digits_Of_Card += 1;
+                    }
+                    if (Counter_For_Digits_Of_Card == 8) {
+                        System.out.println("Enter Pin");
+                        int pin = sc.nextInt();
+                        if (10000000 + pin == cardnumber1) {
+                            System.out.println("Enter Money To Withdraw");
+                            int withdraw = sc.nextInt();
+                            System.out.println("Money: " + withdraw + " was successfully taken and deducted from account: " + cardnumber1);
+                        } else {
+                            System.out.println("Wrong Pin!!");
+                        }
+                    } else {
+                        System.out.println("The Card Number is containing " + Counter_For_Digits_Of_Card + " digits. It must contain 8 digits");
+                    }
+                } else {
+                    System.out.println("Wrote Card incorrectly");
+                }
+                break;
+            case 2:
+                System.out.println("Insert Card");
+                String card2 = sc.next();
+                if (card2.equalsIgnoreCase("Card")) {
+                    System.out.println("Enter 1st account(The Card Number Should not contain 0)");
+                    int host_account = sc.nextInt();
+                    for (int i1 = host_account; i1 != 0; i1 = i1 / 10) {
+                        int d = i1 % 10;
+                        Counter_For_Digits_Of_Card += 1;
+                    }
+                    if (Counter_For_Digits_Of_Card == 8) {
+                        System.out.println("Enter Pin");
+                        int pin = sc.nextInt();
+                        if (10000000 + pin == host_account) {
+                            System.out.println("Enter 2st account(The Card Number Should not contain 0)");
+                            int receiver_account = sc.nextInt();
+                            for (int i3 = receiver_account; i3 != 0; i3 = i3 / 10) {
+                                int d = i3 % 10;
+                                Counter_For_Digits_Of_Card += 1;
+                            }
+                            if (Counter_For_Digits_Of_Card == 8) {
+                                System.out.println("Enter Money To Transfer");
+                                int transfer_money = sc.nextInt();
+                                System.out.println("Money: " + transfer_money + " was successfully transferred from Account No. " + host_account + " to Account No." + receiver_account);
+                            } else {
+                                System.out.println("The receiver account " + receiver_account + " is having " + Counter_For_Digits_Of_Card + " digits");
+                            }
+                        }
+                    } else {
+                        System.out.println("Incorrect PIN!!");
+                    }
+                } else {
+                    System.out.println("Wrote Card INCORRECTLY!!");
+                }
+                break;
+            case 3:
+                System.out.println("\t" + "\t" + "\t" + "\t" + "\t" + "Select Service");
+                System.out.println("1) Pay Electricity Bill");
+                System.out.println("2) Pay Water Bill");
+                System.out.println("3) Pay Income Tax");
+                System.out.println("4) Recharge Phone(Previous Plan will be activated)");
+                System.out.println("Enter Choice");
+                int choice2 = sc.nextInt();
+                switch (choice2) {
+                    case 1:
+                        System.out.println("Insert Card");
+                        String card3 = sc.next();
+                        if (card3.equalsIgnoreCase("Card")) {
+                            System.out.println("Enter account number(The Card Number Should not contain 0)");
+                            int cardnumber2 = sc.nextInt();
+                            for (int i = cardnumber2; i != 0; i = i / 10) {
+                                int d = i % 10;
+                                Counter_For_Digits_Of_Card += 1;
+                            }
+                            if (Counter_For_Digits_Of_Card == 8) {
+                                System.out.println("Enter Pin");
+                                int pin = sc.nextInt();
+                                if (10000000 + pin == cardnumber2) {
+                                    System.out.println("Confirm if you want pay your electricity bill(Y or N) ?");
+                                    String y_n1 = sc.next();
+                                    if (y_n1.equalsIgnoreCase("Y")) {
+                                        System.out.println("CONFIRMED!! Your electricity bill will be payed will be executed and will be hosted from account " + cardnumber2);
+                                    } else {
+                                        System.out.println("Action was not executed");
+                                    }
+                                } else {
+                                    System.out.println("Wrong PIN!!!!");
+                                }
+                            } else {
+                                System.out.println("The Card Number " + cardnumber2 + " is having " + Counter_For_Digits_Of_Card + " digits");
+                            }
+                        } else {
+                            System.out.println("Wrote Card INCORRECTLY!!!");
+                        }
+                        break;
+                    case 2:
+                        System.out.println("Insert Card");
+                        String card4 = sc.next();
+                        if (card4.equalsIgnoreCase("Card")) {
+                            System.out.println("Enter account number(The Card Number Should not contain 0)");
+                            cardnumber3 = sc.nextInt();
+                            for (int i = cardnumber3; i != 0; i = i / 10) {
+                                int d = i % 10;
+                                Counter_For_Digits_Of_Card += 1;
+                            }
+                            if (Counter_For_Digits_Of_Card == 8) {
+                                System.out.println("Enter Pin");
+                                int pin = sc.nextInt();
+                                if (10000000 + pin == cardnumber3) {
+                                    System.out.println("Confirm if you pay you water bill ?");
+                                    String y_n1 = sc.next();
+                                    if (y_n1.equalsIgnoreCase("Y")) {
+                                        System.out.println("CONFIRMED!! Your Water Bill will be payed will be executed and will be hosted from account " + cardnumber3);
+                                    } else {
+                                        System.out.println("Action was not executed");
+                                    }
+                                } else {
+                                    System.out.println("Wrong PIN!!!!");
+                                }
+                            } else {
+                                System.out.println("The Card Number " + cardnumber3 + " is having " + Counter_For_Digits_Of_Card + " digits");
+                            }
+                        } else {
+                            System.out.println("Wrote Card INCORRECTLY!!!");
+                        }
+                        break;
+                    case 3:
+                        System.out.println("Insert Card");
+                        String card5 = sc.next();
+                        if (card5.equalsIgnoreCase("Card")) {
+                            System.out.println("Enter account number (The Card Number Should not contain 0)");
+                            int cardnumber4 = sc.nextInt();
+                            for (int i = cardnumber4; i != 0; i = i / 10) {
+                                int d = i % 10;
+                                Counter_For_Digits_Of_Card += 1;
+                            }
+                            if (Counter_For_Digits_Of_Card == 8) {
+                                System.out.println("Enter Pin");
+                                int pin = sc.nextInt();
+                                if (10000000 + pin == cardnumber4) {
+                                    System.out.println("Confirm if you want to pay your Income Tax of this month ?");
+                                    String y_n1 = sc.next();
+                                    if (y_n1.equalsIgnoreCase("Y")) {
+                                        System.out.println("CONFIRMED!! Income tax will be payed will be executed and will be hosted from account) " + cardnumber4);
+                                    } else {
+                                        System.out.println("Action was not executed");
+                                    }
+                                } else {
+                                    System.out.println("Wrong PIN!!!!");
+                                }
+                            } else {
+                                System.out.println("The Card Number " + cardnumber4 + " is having " + Counter_For_Digits_Of_Card + " digits");
+                            }
+                        } else {
+                            System.out.println("Wrote Card INCORRECTLY!!!");
+                        }
+                        break;
+                    case 4:
+                        System.out.println("Insert Card");
+                        String card6 = sc.next();
+                        if (card6.equalsIgnoreCase("Card")) {
+                            System.out.println("Enter account(The Card Number Should not contain 0)");
+                            int cardnumber5 = sc.nextInt();
+                            for (int i = cardnumber5; i != 0; i = i / 10) {
+                                int d = i % 10;
+                                Counter_For_Digits_Of_Card += 1;
+                            }
+                            if (Counter_For_Digits_Of_Card == 8) {
+                                System.out.println("Enter Pin");
+                                int pin = sc.nextInt();
+                                if (10000000 + pin == cardnumber5) {
+                                    System.out.println("Confirm if you want to Recharge your Phone(Previously applied plan will be recharged ?");
+                                    String y_n1 = sc.next();
+                                    if (y_n1.equalsIgnoreCase("Y")) {
+                                        System.out.println("CONFIRMED!! Your phone will be payed will be executed and will be hosted from account " + cardnumber5);
+                                    } else {
+                                        System.out.println("Action was not executed");
+                                    }
+                                } else {
+                                    System.out.println("Wrong PIN!!!!");
+                                }
+                            } else {
+                                System.out.println("The Card Number " + cardnumber5 + " is having " + Counter_For_Digits_Of_Card + " digits");
+                            }
+                        } else {
+                            System.out.println("Wrote Card INCORRECTLY!!!");
+                        }
+                        break;
+                }
+            default:
+                System.out.print("");
+                break;
+            case 4:
+                System.out.println("Insert Card");
+                String card7 = sc.next();
+                if (card7.equalsIgnoreCase("Card")) {
+                    System.out.println("Enter account(The Card Number Should not contain 0)");
+                    int cardnumber6 = sc.nextInt();
+                    Counter_For_Digits_Of_Card = 0;
+                    for (int i1 = cardnumber6; i1 != 0; i1 = i1 / 10) {
+                        int d1 = i1 % 10;
+                        Counter_For_Digits_Of_Card += 1;
+                    }
+                    if (Counter_For_Digits_Of_Card == 8) {
+                        System.out.println("Enter Pin");
+                        int pin = sc.nextInt();
+                        if (10000000 + pin == cardnumber6) {
+                            System.out.println("\t" + "\t" + "\t" + "\t" + "\t" + "LOANSS!!!!!");
+                            System.out.println("1) Home Loan");
+                            System.out.println("2) Personal loan");
+                            System.out.println("3) Education loans");
+                            System.out.println("4) Vehicle loans");
+                            System.out.println("Chose which loan you need to request");
+                            int choice3 = sc.nextInt();
+                            switch (choice3) {
+                                case 1:
+                                    System.out.println("Select Which plan you need to proceed with ");
+                                    System.out.println("1) ₹200,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("2) ₹400,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("3) ₹800,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("4) ₹1,600,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("Enter Choice");
+                                    int choice6 = sc.nextInt();
+                                    switch (choice6) {
+                                        case 1:
+                                            System.out.println("Confirm if you want to proceed with Plan 1st from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n1 = sc.next();
+                                            if (y_n1.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 1st will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 1st was not executed");
+                                            }
+                                            break;
+                                        case 2:
+                                            System.out.println("Confirm if you want to proceed with Plan 2nd from account " + cardnumber6 + " (Enter Y or N)");
+                                            String y_n2 = sc.next();
+                                            if (y_n2.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 2nd will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 2nd was not executed");
+                                            }
+                                            break;
+                                        case 3:
+                                            System.out.println("Confirm if you want to proceed with Plan 3rd from account " + cardnumber6 + " (Enter Y or N)");
+                                            String y_n3 = sc.next();
+                                            if (y_n3.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 3rd will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 3rd was not executed");
+                                            }
+                                            break;
+                                        case 4:
+                                            System.out.println("Confirm if you want to proceed with Plan 4th from account " + cardnumber6 + " (Enter Y or N)");
+                                            String y_n4 = sc.next();
+                                            if (y_n4.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 4th will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 4th was not executed");
+                                            }
+                                            break;
+                                        default:
+                                            System.out.println("Wrong CHOICE!!!!");
+                                            break;
+                                    }
+                                    break;
+                                case 2:
+                                    System.out.println("Select Which plan you need to proceed with ");
+                                    System.out.println("1) ₹200,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("2) ₹400,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("3) ₹800,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("4) ₹1,600,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("Enter Choice");
+                                    int choice8 = sc.nextInt();
+                                    switch (choice8) {
+                                        case 1:
+                                            System.out.println("Confirm if you want to proceed with Plan 1st from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n1 = sc.next();
+                                            if (y_n1.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 1st will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 1st was not executed");
+                                            }
+                                            break;
+                                        case 2:
+                                            System.out.println("Confirm if you want to proceed with Plan 2nd from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n2 = sc.next();
+                                            if (y_n2.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 2nd will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 2nd was not executed");
+                                            }
+                                            break;
+                                        case 3:
+                                            System.out.println("Confirm if you want to proceed with Plan 3rd from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n3 = sc.next();
+                                            if (y_n3.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 3rd will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 3rd was not executed");
+                                            }
+                                            break;
+                                        case 4:
+                                            System.out.println("Confirm if you want to proceed with Plan 4th from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n4 = sc.next();
+                                            if (y_n4.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 4th will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 4th was not executed");
+                                            }
+                                            break;
+                                    }
+                                case 3:
+                                    System.out.println("Select Which plan you need to proceed with ");
+                                    System.out.println("1) ₹200,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("2) ₹400,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("3) ₹800,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("4) ₹1,600,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("Enter Choice");
+                                    int choice9 = sc.nextInt();
+                                    switch (choice9) {
+                                        case 1:
+                                            System.out.println("Confirm if you want to proceed with Plan 1st from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n5 = sc.next();
+                                            if (y_n5.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 1st will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 1st was not executed");
+                                            }
+                                            break;
+                                        case 2:
+                                            System.out.println("Confirm if you want to proceed with Plan 2nd from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n6 = sc.next();
+                                            if (y_n6.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 2nd will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 2nd was not executed");
+                                            }
+                                            break;
+                                        case 3:
+                                            System.out.println("Confirm if you want to proceed with Plan 3rd from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n7 = sc.next();
+                                            if (y_n7.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 3rd will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 3rd was not executed");
+                                            }
+                                            break;
+                                        case 4:
+                                            System.out.println("Confirm if you want to proceed with Plan 4th from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n8 = sc.next();
+                                            if (y_n8.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 4th will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 4th was not executed");
+                                            }
+                                            break;
+                                    }
+                                case 5:
+                                    System.out.println("Select Which plan you need to proceed with ");
+                                    System.out.println("1) ₹200,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("2) ₹400,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("3) ₹800,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("4) ₹1,600,000 in your ACCOUNT" + cardnumber6);
+                                    System.out.println("Enter Choice");
+                                    int choice10 = sc.nextInt();
+                                    switch (choice10) {
+                                        case 1:
+                                            System.out.println("Confirm if you want to proceed with Plan 1st from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n11 = sc.next();
+                                            if (y_n11.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 1st will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 1st was not executed");
+                                            }
+                                            break;
+                                        case 2:
+                                            System.out.println("Confirm if you want to proceed with Plan 2nd from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n12 = sc.next();
+                                            if (y_n12.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 2nd will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 2nd was not executed");
+                                            }
+                                            break;
+                                        case 3:
+                                            System.out.println("Confirm if you want to proceed with Plan 3rd from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n13 = sc.next();
+                                            if (y_n13.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 3rd will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 3rd was not executed");
+                                            }
+                                            break;
+                                        case 4:
+                                            System.out.println("Confirm if you want to proceed with Plan 4th from account:" + cardnumber6 + " (Enter Y or N)");
+                                            String y_n14 = sc.next();
+                                            if (y_n14.equalsIgnoreCase("Y")) {
+                                                System.out.println("CONFIRMED!! Plan 4th will be executed and will be hosted from account " + cardnumber6);
+                                            } else {
+                                                System.out.println("Plan 4th was not executed");
+                                            }
+                                            break;
+                                    }
+                                    break;
+                            }
+                            break;
+                        }
+                    }
+                    else {
+                        System.out.println("The Card Number " + cardnumber6 + " is having " + Counter_For_Digits_Of_Card + " digits");
+                        break;
+                    }
+                } else {
+                    System.out.println("Wrong PIN!!!");
+                    break;
+                }
+            case 5:
+                System.out.println("Insert Card");
+                String card8 = sc.next();
+                if (card8.equalsIgnoreCase("Card")) {
+                    System.out.println("Enter account(The Card Number Should not contain 0)");
+                    int cardnumber14 = sc.nextInt();
+                    Counter_For_Digits_Of_Card = 0;
+                    for (int i1 = cardnumber14; i1 != 0; i1 = i1 / 10) {
+                        int d1 = i1 % 10;
+                        Counter_For_Digits_Of_Card += 1;
+                    }
+                    if (Counter_For_Digits_Of_Card == 8) {
+                        System.out.println("Enter Pin");
+                        int pin7 = sc.nextInt();
+                        if (10000000 + pin7 == cardnumber14) {
+                            System.out.println("1) Health Insurance");
+                            System.out.println("2) Motor Insurance");
+                            System.out.println("3) Home Insurance");
+                            System.out.println("4) Travel Insurance");
+                            System.out.println("Enter Choice");
+                            int choice8 = sc.nextInt();
+                            switch (choice8) {
+                                case 1:
+                                    System.out.println("Confirm if you want to execute Health Loan with account (Y or N) " + cardnumber14);
+                                    String y_n4 = sc.next();
+                                    if (y_n4.equalsIgnoreCase("Y")) {
+                                        System.out.println("CONFIRMED!! ");
+                                    } else {
+                                        System.out.println("Action was not executed ");
+                                    }
+                                    break;
+                                case 2:
+                                    System.out.println("Confirm if you want to execute Motor Insurance with account (Y or N) " + cardnumber14);
+                                    String y_n5 = sc.next();
+                                    if (y_n5.equalsIgnoreCase("Y")) {
+                                        System.out.println("CONFIRMED!! ");
+                                    } else {
+                                        System.out.println("Action was not executed ");
+                                    }
+                                    break;
+                                case 3:
+                                    System.out.println("Confirm if you want to execute Home Loan with account (Y or N) " + cardnumber14);
+                                    String y_n6 = sc.next();
+                                    if (y_n6.equalsIgnoreCase("Y")) {
+                                        System.out.println("CONFIRMED!! ");
+                                    } else {
+                                        System.out.println("Action was not executed ");
+                                    }
+                                    break;
+                                case 4:
+                                    System.out.println("Confirm if you want to execute Travel Loan with account (Y or N) " + cardnumber14);
+                                    String y_n7 = sc.next();
+                                    if (y_n7.equalsIgnoreCase("Y")) {
+                                        System.out.println("CONFIRMED!! ");
+                                    } else {
+                                        System.out.println("Action was not executed ");
+                                    }
+                                    break;
+                                default:
+                                    System.out.println("Wrong Choice");
+
+                            }
+
+                        }
+
+                    }
+                }else{
+                    System.out.println("Wrote CARD INCORRECTLY!!!");
+                }
+        }
+        System.out.println("THANKS FOR USING MY PROGRAM !!!!!!!!");
+    }
+}
